@@ -1,15 +1,10 @@
 package com.example.asiantech.designpatterndemo.mediator;
 
 /**
- * Mediator
- *
- * @author at-ToanNguyen
+ * Created by toannguyent2 on 21/07/2017.
  */
 
 public interface Mediator {
-    void saleOffer(String stock, int shares, int collCode);
-
-    void buyOffer(String stock, int shares, int collCode);
-
-    void addColleague(Colleague colleague);
+    void sendMessage(String msg, User user);
+    void addUser(User user);
 }

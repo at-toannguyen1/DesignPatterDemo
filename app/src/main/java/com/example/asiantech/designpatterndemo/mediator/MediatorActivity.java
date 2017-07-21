@@ -11,15 +11,13 @@ public class MediatorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mediator);
-        StockMediator nyse = new StockMediator();
-        GormanSlacks broker = new GormanSlacks(nyse,200);
-        JTPoorman broker2 = new JTPoorman(nyse,200);
-        broker.saleOffer("MSFT", 100);
-        broker.saleOffer("GOOG", 50);
-        broker2.buyOffer("MSFT", 100);
-        broker2.saleOffer("NRG", 10);
-        broker.buyOffer("NRG", 10);
-        nyse.getstockOfferings();
-
+        ApplicationMediator mediator = new ApplicationMediator();
+        User user1=new UserImpl(mediator,"Tony");
+        User user2=new UserImpl(mediator,"Sam");
+        User user3=new UserImpl(mediator,"Nick");
+        mediator.addUser(user1);
+        mediator.addUser(user2);
+        mediator.addUser(user3);
+        user1.send("Hello everyone");
     }
 }
